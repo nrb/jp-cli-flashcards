@@ -74,3 +74,6 @@ KANAMOJI = [
  Kanamoji(kind='seion', hirigana='に', katakana='ニ', romaji='ni'),
  Kanamoji(kind='seion', hirigana='け', katakana='ケ', romaji='ke')
 ]
+
+seion = list(kanamoji for kanamoji in KANAMOJI if kanamoji.kind == 'seion')
+dakuon = list(kanamoji for kanamoji in KANAMOJI if kanamoji.kind == 'dakuon')
