@@ -71,16 +71,19 @@ katakana_dakuon_table = dakuontables[1]
 character_map = defaultdict(dict)
 
 hirigana_seion_rows = hirigana_table.getchildren()
-character_map = parse_table(hirigana_seion_rows, character_map, 'hirigana', 'seion')
+character_map = parse_table(hirigana_seion_rows, character_map,
+                            'hirigana', 'seion')
 
 hirigana_dakuon_rows = trim_dakuon_tables(hirigana_dakuon_table)
-character_map = parse_table(hirigana_dakuon_rows, character_map, 'hirigana', 'dakuon')
+character_map = parse_table(hirigana_dakuon_rows, character_map,
+                            'hirigana', 'dakuon')
 
 katakana_seion_rows = katakana_table.getchildren()
-character_map = parse_table(katakana_seion_rows, character_map, 'katakana', 'seion')
+character_map = parse_table(katakana_seion_rows, character_map,
+                            'katakana', 'seion')
 
 katakana_dakuon_rows = trim_dakuon_tables(katakana_dakuon_table)
-character_map = parse_table(katakana_dakuon_rows, character_map, 'katakana', 'dakuon')
+character_map = parse_table(katakana_dakuon_rows, character_map,
+                            'katakana', 'dakuon')
 
 pprint(dict(character_map))
-#import pdb; pdb.set_trace()  # NOQA
