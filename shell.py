@@ -9,17 +9,18 @@ class FlashCardShell(cmd.Cmd):
     def initialize(self):
         self.script = ''
         self.game = None
+        print('A basic Japanese CLI flash card tool')
         self.get_script()
 
     def get_script(self):
-        print('A basic Japanese CLI flash card tool')
         print('Which script would you like to practice?')
         print('Hiragana or katakana?')
 
     def set_script(self, arg):
         if arg not in ('hiragana', 'katakana'):
-            print('{} was an invalid choice.')
+            print('\n{} was an invalid choice.\n'.format(arg))
             self.get_script()
+            return
         self.script = arg
         self.game = logic.FlashCardGame(self.script, KANAMOJI)
         self.prompt = 'your guess > '
