@@ -36,7 +36,12 @@ class FlashCardShell(cmd.Cmd):
         print(logic.format_options(self.game.choices))
 
     def guess(self, arg):
-        value = int(arg)
+        try:
+            value = int(arg)
+        except ValueError:
+            print('\n{} was an invalid choice.\n'.format(arg))
+            self.ask()
+            return
         print('You guessed {}'.format(value))
         if self.game.check_answer(value):
             print('Correct!')
