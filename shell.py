@@ -1,4 +1,5 @@
 import cmd
+import logic
 from kanamoji import KANAMOJI
 import random
 
@@ -12,27 +13,13 @@ class FlashCardShell(cmd.Cmd):
         self.ask()
 
     def prep_question(self):
-        self.choices = self.randomize_choices()
-        self.answer = self.choose_correct_answer(self.choices)
+        self.choices = logic.randomize_choices(KANAMOJI)
+        self.answer = random.choice(self.choices)
         self.prompt_char = self.answer['hiragana']
-
-    def randomize_choices(self):
-        choices = []
-
-        for i in range(0, 3):
-            picked = random.choice(KANAMOJI)
-            if picked in choices:
-                picked = random.choice(KANAMOJI)
-            choices.append(picked)
-        return choices
-
-    def choose_correct_answer(self, choices):
-        return random.choice(choices)
 
     def ask(self):
         print(self.prompt_char)
-        for i, choice in enumerate(self.choices):
-            print('{} - {}'.format(i, choice['romaji']))
+        print(logic.format_options(self.choices))
 
     def guess(self, arg):
         value = int(arg)
