@@ -14,7 +14,7 @@ class FlashCardShell(cmd.Cmd):
     def prep_question(self):
         self.choices = self.randomize_choices()
         self.answer = self.choose_correct_answer(self.choices)
-        self.prompt_char = self.answer.hirigana
+        self.prompt_char = self.answer['hiragana']
 
     def randomize_choices(self):
         choices = []
@@ -32,7 +32,7 @@ class FlashCardShell(cmd.Cmd):
     def ask(self):
         print(self.prompt_char)
         for i, choice in enumerate(self.choices):
-            print('{} - {}'.format(i, choice.romaji))
+            print('{} - {}'.format(i, choice['romaji']))
 
     def guess(self, arg):
         value = int(arg)

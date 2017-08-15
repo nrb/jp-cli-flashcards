@@ -11,4 +11,4 @@ romanization.
 [ ] Ensure that order doesn't matter for multiple definitions of a kanji character
 [ ] Add MyPy support
 [ ] Add tests
-[ ] Move data (kanamoji.py) into YAML files
+[x] Move data (kanamoji.py) into YAML files
