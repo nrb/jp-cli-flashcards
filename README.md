@@ -10,5 +10,5 @@ romanization.
 [ ] Add Kanji support - This will require updating launch to choose from a dictionary, as well as the answer's key (which is currently hard-coded to 'romaji')
 [ ] Ensure that order doesn't matter for multiple definitions of a kanji character
 [ ] Add MyPy support
-[ ] Add tests
+[x] Add tests
 [x] Move data (kanamoji.py) into YAML files
