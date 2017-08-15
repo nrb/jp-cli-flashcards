@@ -19,3 +19,20 @@ def format_options(choices):
     for i, choice in enumerate(choices):
         output.append('{} - {}'.format(i, choice['romaji']))
     return '\n'.join(output)
+
+
+class FlashCardGame:
+    def __init__(self, characters, collection):
+        self.characters = characters
+        self.collection = collection
+        self.choices = []
+        self.answer = None
+
+    def start_question(self):
+        self.choices = randomize_choices(self.collection)
+        self.answer = random.choice(self.choices)
+
+    def check_answer(self, guess):
+        if guess < 0 or guess > len(self.choices) - 1:
+            return False
+        return self.choices[guess]['romaji'] == self.answer['romaji']
